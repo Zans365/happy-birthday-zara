@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
+    <!-- Google Fonts & Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        blackBg: '#0A0A0A',
+                        darkCard: '#141414',
+                        borderDark: '#262626',
+                        pureWhite: '#FFFFFF',
+                        offWhite: '#F3F3F3',
+                        grayText: '#A3A3A3',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Bulletproof Infinite Motion Keyframes (Anti-Stuck & Always Active) */
+        @keyframes floatLeft {
+            0% { transform: translate3d(-150vw, 0, 0); opacity: 0; }
+            10% { opacity: 0.55; }
+            90% { opacity: 0.55; }
+            100% { transform: translate3d(150vw, 30px, 0); opacity: 0; }
+        }
+
+        @keyframes floatRight {
+            0% { transform: translate3d(150vw, 0, 0); opacity: 0; }
+            10% { opacity: 0.55; }
+            90% { opacity: 0.55; }
+            100% { transform: translate3d(-150vw, -30px, 0); opacity: 0; }
+        }
+
+        .motion-item-left {
+            position: absolute;
+            will-change: transform;
+            animation: floatLeft 16s linear infinite;
+        }
+
+        .motion-item-right {
+            position: absolute;
+            will-change: transform;
+            animation: floatRight 20s linear infinite;
+        }
+
+        /* Black & White Glassmorphism */
+        .glass-dark {
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-blackBg text-offWhite font-sans antialiased overflow-x-hidden selection:bg-pureWhite selection:text-blackBg">
+
+    <!-- Direct Audio Element -->
+    <audio id="bg-audio" loop>
+        <source src="https://files.catbox.moe/npsd6e.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Entrance Overlay to bypass Browser Autoplay Policy -->
+    <div id="welcome-overlay" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 transition-opacity duration-700">
+        <div class="glass-dark p-6 sm:p-8 rounded-2xl max-w-sm sm:max-w-md w-full text-center shadow-2xl space-y-5 border border-white/10">
+            <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mx-auto text-xl text-white">
+                🖤
+            </div>
+            <div>
+                <h2 class="font-serif text-xl sm:text-2xl font-semibold mb-2 text-white">Special birthday Website</h2>
+                <p class="text-xs sm:text-sm text-grayText">Klik Tombol Dibawah Buat Buka Website Nyaa.</p>
+            </div>
+            <button onclick="startExperience()" class="w-full py-3 px-6 bg-pureWhite text-blackBg font-semibold text-sm rounded-xl hover:bg-offWhite transition shadow-lg cursor-pointer">
+                Buka & Putar Musik ✨
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Motion Photos Container (Ganti link src dengan link Google Drive yang sudah diubah formatnya) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-25">
+        <div class="motion-item-left top-[5%] w-28 h-36 sm:w-40 sm:h-52 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 rotate-[-6deg]" style="animation-delay: 0s;">
+            <img src="https://lh3.googleusercontent.com/d/1ww29psLfklFY0FO1ZILVTBNvLFQ87OlG" class="w-full h-full object-cover filter grayscale">
+        </div>
+        <div class="motion-item-left top-[38%] w-24 h-32 sm:w-36 sm:h-48 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 rotate-[8deg]" style="animation-delay: 5s;">
+            <img src="https://lh3.googleusercontent.com/d/1oYwXoW-8eCywq16RjbgirN94megppRmA" class="w-full h-full object-cover filter grayscale">
+        </div>
+        <div class="motion-item-left top-[70%] w-32 h-40 sm:w-44 sm:h-56 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 rotate-[-4deg]" style="animation-delay: 10s;">
+            <img src="https://lh3.googleusercontent.com/d/16Bh2cTU16ZagtB8MF10LOVqUhPHQu5ev" class="w-full h-full object-cover filter grayscale">
+        </div>
+
+        <div class="motion-item-right top-[15%] w-28 h-36 sm:w-40 sm:h-52 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 rotate-[6deg]" style="animation-delay: 2s;">
+            <img src="https://lh3.googleusercontent.com/d/1j-Mx1GQoscDCGWHfhTSDwgWCgSFeeNHB" class="w-full h-full object-cover filter grayscale">
+        </div>
+        <div class="motion-item-right top-[52%] w-24 h-32 sm:w-36 sm:h-48 rounded-xl overflow-hidden shadow-2xl border-2 border-white/20 rotate-[-8deg]" style="animation-delay: 7s;">
+            <img src="https://lh3.googleusercontent.com/d/1j-Mx1GQoscDCGWHfhTSDwgWCgSFeeNHB" class="w-full h-full object-cover filter grayscale">
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col justify-between">
+        
+        <!-- Header / Navbar -->
+        <header class="w-full py-4 px-4 sm:px-8 md:px-12 flex justify-between items-center glass-dark border-b border-borderDark sticky top-0 z-40">
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+                <h1 class="font-serif text-base sm:text-lg md:text-xl font-semibold tracking-wide text-white">Our Special Day</h1>
+            </div>
+            <div>
+                <button id="music-toggle-btn" onclick="toggleAudio()" class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full bg-white/10 hover:bg-white/20 transition flex items-center space-x-1.5 sm:space-x-2 border border-white/10 text-white cursor-pointer">
+                    <span id="music-icon">🎵</span>
+                    <span id="music-text">Musik</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section & Small Photo Collage -->
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
+            
+            <!-- Left Column: Small Photos Collage -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="glass-dark p-5 sm:p-6 rounded-3xl shadow-xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-serif font-medium text-xs sm:text-sm text-grayText uppercase tracking-widest">Memories Collage</h3>
+                        <span class="text-[10px] sm:text-xs px-2.5 py-1 bg-white/10 text-white rounded-full font-medium">Monochrome</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                        <div class="group relative overflow-hidden rounded-xl aspect-square shadow-md border border-white/10 bg-black p-1 transform hover:-translate-y-1 transition duration-300 cursor-pointer">
+                            <img src="https://lh3.googleusercontent.com/d/1fchdBqyxyTwUk6uMpXUMdThfChU8vBlr" class="w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                        <div class="group relative overflow-hidden rounded-xl aspect-square shadow-md border border-white/10 bg-black p-1 transform hover:-translate-y-1 transition duration-300 cursor-pointer">
+                            <img src="https://lh3.googleusercontent.com/d/1b82P6pFwatgjj8_RORg0zbeDliaqF9yJ" class="w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                        <div class="group relative overflow-hidden rounded-xl aspect-square shadow-md border border-white/10 bg-black p-1 transform hover:-translate-y-1 transition duration-300 cursor-pointer">
+                            <img src="https://lh3.googleusercontent.com/d/11VvK_KWa-NYjZFW0dUuwsYGLdV9nebve" class="w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                        <div class="group relative overflow-hidden rounded-xl aspect-square shadow-md border border-white/10 bg-black p-1 transform hover:-translate-y-1 transition duration-300 cursor-pointer">
+                            <img src="https://lh3.googleusercontent.com/d/1WLy5uVVt6ViPLsa0pLD_IqGnOrpjM4Te" class="w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                        <div class="group relative overflow-hidden rounded-xl aspect-square shadow-md border border-white/10 bg-black p-1 transform hover:-translate-y-1 transition duration-300 cursor-pointer">
+                            <img src="https://lh3.googleusercontent.com/d/1AAemWH91Eoe9GC0fox-KlfYYQdTOjLbr" class="w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                        <div class="group relative overflow-hidden rounded-xl aspect-square shadow-md border border-white/10 bg-white/5 text-grayText text-[10px] sm:text-xs font-semibold flex items-center justify-center">
+                            <img src="https://lh3.googleusercontent.com/d/1gKV268uG2H2Jqk8xG6Dh3lQb2eZSIDd_" class="w-full h-full object-cover rounded-lg filter grayscale group-hover:grayscale-0 transition duration-500">
+                        </div>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-grayText text-center pt-1 italic">"Sentuh foto untuk liat warna aslinya ✨"</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Birthday Note & Hero Text -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="glass-dark p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-white/5 rounded-bl-full -z-10"></div>
+                    
+                    <span class="inline-block py-1 px-3 rounded-full bg-white/10 text-[11px] sm:text-xs font-medium text-offWhite mb-3 sm:mb-4">Happy Birthday</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 tracking-tight text-white">
+                        Happy Birthday, Mi Amor
+                    </h2>
+                    <p class="text-xs sm:text-sm md:text-base text-grayText leading-relaxed mb-5 sm:mb-6">
+                         happy birthday yaa. di umur kamu yang sekarang, aku cuma berharap semoga semua hal yang selama ini kamu usahain pelan-pelan bisa menemukan jalannya, satu per satu bisa tercapai, dan semua mimpi yang pernah kamu ceritain atau bahkan yang kamu simpan sendiri bisa kamu raih. mungkin perjalanan kamu ke depannya nggak selalu mudah, mungkin bakal ada hari di mana kamu ngerasa capek dan pengen berhenti, tapi aku harap kamu selalu inget kalau sejauh ini kamu udah berhasil melewati banyak hal. jadi jangan pernah ngerasa kalau perjuangan kamu sia-sia yaa, karena sekecil apa pun langkah yang kamu ambil, itu tetap bagian dari perjalanan kamu buat sampai ke tempat yang kamu mau. maaf yaa kalau ucapan aku kali ini mungkin nggak seindah atau sebagus yang seharusnya, aku cuma nggak terlalu tau gimana cara yang tepat buat nyampein semua yang ada di kepala dan hati aku. terlepas dari hubungan kita yang udah selesai satu hal yang harus kamu tau aku tulus sayang sama kamu, aku seneng bisa lihat kamu sampai di umur ini. aku selalu bangga sama kamu, bukan cuma karena hal-hal besar yang berhasil kamu capai, tapi juga karena kamu masih terus bertahan, terus belajar, dan terus tumbuh meskipun mungkin ada banyak hal yang nggak selalu kamu tunjukin ke orang lain. aku juga berharap semoga kita bisa ketemu lagi dalam waktu dekat, dan kita ngobrol tentang hari hari dimana kita ga saling ngabarin dulu atau entah tentang apa, ketawa tentang hal-hal kecil, atau sekadar duduk dan cerita tentang apa yang udah kita lewatin selama ini. aku cuma berharap kesempatan itu masih ada. sampai kapan pun, dan satu hal lagi yang kamu harus tau aku masih sayang sama kamu, dan rasa itu selalu punya tempatnya sendiri di hati aku. jadi please, jangan pernah berhenti bertumbuh, jangan takut sama hari-hari yang belum kamu tau akan seperti apa, dan jangan lupa buat selalu jaga diri kamu sendiri. semoga di umur yang baru ini kamu bisa lebih bahagia, lebih tenang, dan akhirnya mendapatkan semua hal yang selama ini kamu perjuangin. happy birthday, i’m always rooting for you. 🤍
+
+                    <div class="p-3.5 sm:p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between">
+                        <div>
+                            <p class="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider">My wishes for you</p>
+                            <p class="text-xs sm:text-sm text-grayText font-serif italic mt-0.5">"I hope all your dreams come true"</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl">🕊️</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Direct Video Section -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 w-full">
+            <div class="text-center mb-6 sm:mb-10">
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest text-grayText">Memory</span>
+                <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-semibold mt-1 text-white">Your Special Video</h3>
+                <p class="text-xs sm:text-sm text-grayText mt-1"> </p>
+            </div>
+
+            <div class="glass-dark p-2.5 sm:p-4 rounded-3xl shadow-2xl border border-white/10 overflow-hidden group">
+                <div class="relative aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center">
+                    <video class="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 transition duration-700 cursor-pointer" controls preload="metadata">
+                        <source src="https://files.catbox.moe/xrk780.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung tag video.
+                    </video>
+                </div>
+                <div class="p-3 sm:p-4 text-center">
+                    <p class="text-xs sm:text-sm text-grayText font-serif italic">"A Little Something for you."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
+            <div class="text-center mb-6 sm:mb-10">
+                <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-semibold mb-2 text-white">Our Gallery</h3>
+                <p class="text-xs sm:text-sm text-grayText">sweet moment.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                <div class="glass-dark p-2 rounded-2xl shadow-xl group overflow-hidden cursor-pointer">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black">
+                        <img src=https://lh3.googleusercontent.com/d/15rhFDT2dXBpEdwq6hKcFN3opJmVgGz18 class="w-full h-full object-cover group-hover:scale-105 filter grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <p class="text-center text-xs font-medium text-grayText py-2.5">you</p>
+                </div>
+                <div class="glass-dark p-2 rounded-2xl shadow-xl group overflow-hidden cursor-pointer">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black">
+                        <img src="https://lh3.googleusercontent.com/d/1QAu8rKmaS5ls_hNMWW6Bv-582Mqu4dap" class="w-full h-full object-cover group-hover:scale-105 filter grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <p class="text-center text-xs font-medium text-grayText py-2.5">are my</p>
+                </div>
+                <div class="glass-dark p-2 rounded-2xl shadow-xl group overflow-hidden cursor-pointer sm:col-span-2 md:col-span-1">
+                    <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black">
+                        <img src="https://lh3.googleusercontent.com/d/1r37bsUmutGoL1EHGiB6n2tAHVQyy76Te" class="w-full h-full object-cover group-hover:scale-105 filter grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <p class="text-center text-xs font-medium text-grayText py-2.5">home</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full py-6 sm:py-8 px-4 text-center text-[11px] sm:text-xs text-grayText border-t border-borderDark mt-8 sm:mt-12 glass-dark">
+            <p>Made with all my love for your special day • ZZNSRA</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Control -->
+    <script>
+        const bgAudio = document.getElementById('bg-audio');
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const musicIcon = document.getElementById('music-icon');
+        const musicText = document.getElementById('music-text');
+        let isPlaying = false;
+
+        function startExperience() {
+            welcomeOverlay.style.opacity = '0';
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+            }, 700);
+
+            bgAudio.play().then(() => {
+                isPlaying = true;
+                musicIcon.textContent = '🔊';
+                musicText.textContent = 'Diputar';
+            }).catch(e => {
+                console.log("Audio autoplay prevented:", e);
+            });
+        }
+
+        function toggleAudio() {
+            if (isPlaying) {
+                bgAudio.pause();
+                isPlaying = false;
+                musicIcon.textContent = '🔇';
+                musicText.textContent = 'Musik';
+            } else {
+                bgAudio.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.textContent = '🔊';
+                    musicText.textContent = 'Diputar';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
